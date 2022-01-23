@@ -1,2 +1,0 @@
-# philosophers
-working in progress

@@ -6,7 +6,7 @@
 /*   By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:53:47 by fbafica           #+#    #+#             */
-/*   Updated: 2022/01/21 03:20:02 by fbafica          ###   ########.fr       */
+/*   Updated: 2022/01/22 21:48:47 by fbafica          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static void	eating(t_philo *philo, int *neighbors)
 			usleep(philo->shared->time_to_eat * 1000);
 		}
 	}
+	philo->shared->priority_arr[philo->index] = 0;
 	unlocking_forks(philo, neighbors);
 }
 
