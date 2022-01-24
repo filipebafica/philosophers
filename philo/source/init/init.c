@@ -6,7 +6,7 @@
 /*   By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:37:39 by fbafica           #+#    #+#             */
-/*   Updated: 2022/01/23 21:58:37 by fbafica          ###   ########.fr       */
+/*   Updated: 2022/01/24 15:44:09 by fbafica          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	create_threads(t_shared *shared)
 
 	pthread_create(&shared->dead_philo_th, NULL, &get_dead_philo, shared);
 	pthread_create(&shared->full_philo_th, NULL, &get_full_philo, shared);
-	pthread_create(&shared->full_philo_th, NULL, &get_priority, shared);
+	pthread_create(&shared->priority_th, NULL, &get_priority, shared);
 	shared->start_time = get_start_time();
 	i = 0;
 	while (i < shared->max_philos)

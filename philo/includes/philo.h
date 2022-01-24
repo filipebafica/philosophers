@@ -6,7 +6,7 @@
 /*   By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 00:16:08 by fbafica           #+#    #+#             */
-/*   Updated: 2022/01/23 22:00:29 by fbafica          ###   ########.fr       */
+/*   Updated: 2022/01/24 17:35:10 by fbafica          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@
 # include <sys/time.h>
 
 typedef struct s_shared {
-	long int			start_time;
-	int					max_philos;
-	long int			time_to_die;
-	long int			time_to_eat;
-	long int			time_to_sleep;
-	int					max_meals;
-	int					*num_meals_arr;
-	long int			*meal_time_arr;
-	int					*satisfied_arr;
-	int					priority;
-	int					stop_simulation;
+	_Atomic long int	start_time;
+	_Atomic int			max_philos;
+	_Atomic long int	time_to_die;
+	_Atomic long int	time_to_eat;
+	_Atomic long int	time_to_sleep;
+	_Atomic int			max_meals;
+	_Atomic int			*num_meals_arr;
+	_Atomic long int	*meal_time_arr;
+	_Atomic int			*satisfied_arr;
+	_Atomic int			priority;
+	_Atomic int			stop_simulation;
 	pthread_t			*philos_arr;
 	pthread_t			dead_philo_th;
 	pthread_t			full_philo_th;

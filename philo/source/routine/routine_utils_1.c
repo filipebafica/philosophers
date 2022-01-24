@@ -6,7 +6,7 @@
 /*   By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:52:11 by fbafica           #+#    #+#             */
-/*   Updated: 2022/01/23 18:52:30 by fbafica          ###   ########.fr       */
+/*   Updated: 2022/01/24 13:57:00 by fbafica          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ int	locking_forks(t_philo *philo, int *neighbors)
 {
 	if (philo->shared->max_philos == 1)
 		return (0);
-	if (philo->shared->priority == philo->id && \
-	!philo->shared->forks_arr[neighbors[LEFT_PHILO]].__data.__lock && \
-	!philo->shared->forks_arr[neighbors[RIGHT_PHILO]].__data.__lock)
+	if (philo->shared->priority == philo->index)
 	{
 		pthread_mutex_lock(&philo->shared->forks_arr[neighbors[LEFT_PHILO]]);
 		pthread_mutex_lock(&philo->shared->forks_arr[neighbors[RIGHT_PHILO]]);
@@ -56,4 +54,3 @@ int	locking_forks(t_philo *philo, int *neighbors)
 	}
 	return (0);
 }
-

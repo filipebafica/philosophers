@@ -6,7 +6,7 @@
 /*   By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:20:37 by fbafica           #+#    #+#             */
-/*   Updated: 2022/01/23 22:00:33 by fbafica          ###   ########.fr       */
+/*   Updated: 2022/01/23 23:56:34 by fbafica          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	stop_philo(t_shared *shared, int index)
 
 int	print_status(t_shared *shared, int id, char *print_status, int times)
 {
-	usleep(id * 500);
 	if (!shared->print_mutex.__data.__lock && !shared->stop_simulation)
 	{
 		pthread_mutex_lock(&shared->print_mutex);
