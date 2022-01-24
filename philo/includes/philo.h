@@ -6,7 +6,7 @@
 /*   By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 00:16:08 by fbafica           #+#    #+#             */
-/*   Updated: 2022/01/22 20:19:26 by fbafica          ###   ########.fr       */
+/*   Updated: 2022/01/23 22:00:29 by fbafica          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 typedef struct s_shared {
 	long int			start_time;
-	int					philos_num;
+	int					max_philos;
 	long int			time_to_die;
 	long int			time_to_eat;
 	long int			time_to_sleep;
@@ -42,7 +42,7 @@ typedef struct s_shared {
 	int					*num_meals_arr;
 	long int			*meal_time_arr;
 	int					*satisfied_arr;
-	int					*priority_arr;
+	int					priority;
 	int					stop_simulation;
 	pthread_t			*philos_arr;
 	pthread_t			dead_philo_th;
@@ -82,6 +82,7 @@ void		unlocking_forks(t_philo *info, int *neighbors);
 long int	get_clock(long int start_time);
 void		set_neighbors(t_philo *info, int *neighbors);
 int			check_priority(t_philo *philo);
+long int	get_start_time(void);
 
 					/*
 					* UTILS

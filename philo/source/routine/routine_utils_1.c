@@ -6,7 +6,7 @@
 /*   By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:52:11 by fbafica           #+#    #+#             */
-/*   Updated: 2022/01/22 21:47:40 by fbafica          ###   ########.fr       */
+/*   Updated: 2022/01/23 18:52:30 by fbafica          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	set_neighbors(t_philo *philo, int *neighbors)
 {
-	if (philo->shared->philos_num == 2)
+	if (philo->shared->max_philos == 2)
 	{
 		neighbors[LEFT_PHILO] = 0;
 		neighbors[RIGHT_PHILO] = 1;
@@ -22,7 +22,7 @@ void	set_neighbors(t_philo *philo, int *neighbors)
 	}
 	neighbors[LEFT_PHILO] = philo->index;
 	if (philo->index == 0)
-		neighbors[RIGHT_PHILO] = philo->shared->philos_num - 1;
+		neighbors[RIGHT_PHILO] = philo->shared->max_philos - 1;
 	else
 		neighbors[RIGHT_PHILO] = philo->index - 1;
 }
@@ -44,9 +44,9 @@ void	unlocking_forks(t_philo *philo, int *neighbors)
 
 int	locking_forks(t_philo *philo, int *neighbors)
 {
-	if (philo->shared->philos_num == 1)
+	if (philo->shared->max_philos == 1)
 		return (0);
-	if (philo->shared->priority_arr[philo->index] && \
+	if (philo->shared->priority == philo->id && \
 	!philo->shared->forks_arr[neighbors[LEFT_PHILO]].__data.__lock && \
 	!philo->shared->forks_arr[neighbors[RIGHT_PHILO]].__data.__lock)
 	{

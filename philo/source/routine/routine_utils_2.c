@@ -6,7 +6,7 @@
 /*   By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:20:37 by fbafica           #+#    #+#             */
-/*   Updated: 2022/01/20 17:14:44 by fbafica          ###   ########.fr       */
+/*   Updated: 2022/01/23 22:00:33 by fbafica          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,12 @@ int	print_status(t_shared *shared, int id, char *print_status, int times)
 		return (1);
 	}
 	return (0);
+}
+
+long int	get_start_time(void)
+{
+	struct timeval		tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
