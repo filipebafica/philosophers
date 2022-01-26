@@ -21,4 +21,28 @@ The project can be resumed in the following chart:
 *chart made by: Paulo Cunha*
 
 This project is part of 42 École/ 42 SP curriculum.\
-Topics such as parallelism , multithreading and mutexes were addressed.
+Topics such as parallelism, multithreading and mutexes were addressed.
+
+## 🏁 Getting Started
+A Linux OS and the `gcc` compiler are needed.
+
+#### ⚙️ Installing
+To compile the code, clone the repo, and run the following commands.
+```
+$ git clone https://github.com/filipebafica/philosophers.git
+$ cd philosophers
+$ make
+```
+This is going to generate an executable named `philo`.
+
+## 🎈 How to Use
+Run the `philo` executable passing the arguments:
+* number_of_philosophers 
+* time_to_die 
+* time_to_eat 
+* time_to_sleep
+* [number_of_times_each_philosopher_must_eat]
+
+```
+$ ./philo 5 800 200 200 7
+```
