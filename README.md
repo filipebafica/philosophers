@@ -13,7 +13,7 @@ A multithread simulation in C
 ## 🧐 About
 The objective of this project is to create a multithread program that simulates a dinner where a 'philosopher' (thread) can eat
 only if he can get two forks (there is a fork for each philosopher). After eating, the philosopher should sleep then start to think
-and try to get two forks again. The simulation stops if a philosopher doesn't eat at a given (tiem_to_die) time or eat the maximum number of meals.
+and try to get two forks again. The simulation stops if a philosopher doesn't eat at a given time (time_to_die) or eat the maximum number of meals.
 
 The project can be resumed in the following chart:
 
