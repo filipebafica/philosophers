@@ -6,35 +6,36 @@
 #    By: fbafica <fbafica@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 18:32:21 by fbafica           #+#    #+#              #
-#    Updated: 2022/01/24 17:30:49 by fbafica          ###   ########.fr        #
+#    Updated: 2022/01/26 00:25:46 by fbafica          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 INCLUDES = ./includes/
-SOURCE = ./source/main.c \
-./source/init/init.c ./source/init/share_data.c \
-./source/monitoring/get_dead_philo.c ./source/monitoring/get_full_philo.c \
-./source/monitoring/get_priority.c \
-./source/routine/routine.c ./source/routine/routine_utils_1.c \
-./source/routine/routine_utils_2.c \
-./source/utils/ft_atoi.c ./source/utils/ft_atoli.c ./source/utils/ft_isdigit.c \
-./source/utils/ft_strcmp.c ./source/utils/ft_calloc.c \
-./source/utils/get_tokens_len.c
+SOURCE = main.c init.c share_data.c get_dead_philo.c get_full_philo.c \
+get_priority.c routine.c routine_utils_1.c routine_utils_2.c \
+ft_atoi.c ft_atoli.c ft_isdigit.c ft_strcmp.c ft_calloc.c get_tokens_len.c
 CC = gcc
-FLAGS = -g -Wall -Wextra -Werror -pthread
-OBJECTS = $(SOURCE:.c=.o)
+FLAGS = -Wall -Wextra -Werror -pthread
+OBJECTS = $(SOURCE:%.c=$(OBJECTS_DIR)%.o)
+OBJECTS_DIR = ./objects/
+VPATH = ./source/ ./source/init/ ./source/monitoring/ ./source/routine/ ./source/utils/
+
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	@$(CC) $(FLAGS) $(SOURCE) -I$(INCLUDES) -o $@
+$(NAME): $(OBJECTS_DIR) $(OBJECTS)
+	@$(CC) $(FLAGS) $(OBJECTS) -I$(INCLUDES) -o $@
 
-%.o: %.c
-	@$(CC) -c $< -I$(INCLUDES) -o $@
+$(OBJECTS_DIR)%.o: %.c
+	@$(CC) $(FLAGS) -c $< -I$(INCLUDES) -o $@
+
+$(OBJECTS_DIR):
+	@mkdir -p objects
 
 clean:
 	@rm -rf $(OBJECTS)
+	@rm -rf $(OBJECTS_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
