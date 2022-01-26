@@ -18,7 +18,7 @@ and try to get two forks again. The simulation stops if a philosopher doesn't ea
 The project can be resumed in the following chart:
 
 ![philosopher_chart](https://user-images.githubusercontent.com/31427890/151245142-25df8aee-86cd-4ea4-9bdd-ad325695e188.png)
-*chart made by: Paulo Cunha*
+*chart made by: [Paulo Cunha](https://github.com/pcc19)*
 
 This project is part of 42 École/ 42 SP curriculum.\
 Topics such as parallelism, multithreading and mutexes were addressed.
